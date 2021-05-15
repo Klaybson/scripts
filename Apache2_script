@@ -1,0 +1,28 @@
+#!/bin/bash
+#Autor: klaybson M. Conceição Data: 14/05/2021 
+#SO: Ubuntu 20.04LTS
+#Apache2
+
+
+
+apt -y install apache2
+
+echo 'É um servidor de WEB para hospedar Site? (s/n)'
+read resp
+
+if [ $resp = "s" ]
+then
+    #Aspas simples não reconhece variavel 
+    sed -i 's/ServerTokens OS/ServerTokens Prod/g' /etc/apache2/conf-enabled/security.conf
+
+    echo 'Digite o nome do site: ex:(www.sites.com.ks)'
+    read site
+    sed -i "70s/^/ServerName $site/" /etc/apache2/apache2.conf
+
+    echo 'Digite o e-mail: ex:(klaybson@sites.com.ks)'
+    read email
+    sed -i "s/ServerAdmin webmaster@srv.world/ServerAdmin $email/g" /etc/apache2/sites-enabled/000-default.conf
+    
+fi
+
+systemctl restart apache2
