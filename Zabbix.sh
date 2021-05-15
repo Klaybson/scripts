@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 #Autor: Klaybson Menezes Conceição
 #SO: Ubuntu 20.04LTS
 #Zabbix 5.0 v.0
