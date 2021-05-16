@@ -32,9 +32,9 @@ read nome_bd
 echo 'Digite uma senha para o banco de dados do Zabbix ex:(Se8n@hA)'
 read senha_bd
 
-mysql -u root -e "create database $nome_bd character set utf8 collate utf8_bin;" && \
-mysql -u root -e "create user $user_bd@localhost identified by $senha_bd;" && \
-mysql -u root -e "grant all privileges on $nome_bd.* to $user_bd@localhost;" && \
+mysql -u root -e "create database $nome_bd character set utf8 collate utf8_bin;"  \
+mysql -u root -e "create user $user_bd@localhost identified by $senha_bd;"  \
+mysql -u root -e "grant all privileges on $nome_bd.* to $user_bd@localhost;"  \
 
 #Importação do esquema inicial 
 zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix && \
