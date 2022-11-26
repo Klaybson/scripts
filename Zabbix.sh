@@ -3,7 +3,7 @@
 #SO: Ubuntu 20.04LTS
 #Zabbix 5.0 v.0
 ##Esse script foi desenvolvido para execução como usuario root do sistema.
-
+./
 #Instalação do Apache
 apt -y install apache2 &&\
 
